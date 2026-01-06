@@ -1,0 +1,16 @@
+[package]
+name = "panout"
+version = "0.1.0"
+edition = "2021"
+description = "Tmux pane orchestrator - create panes and windows from TOML config"
+license = "MIT"
+readme = "README.md"
+keywords = ["tmux", "terminal", "ssh", "cli", "automation"]
+categories = ["command-line-utilities", "development-tools"]
+
+[dependencies]
+toml = "0.8"
+serde = { version = "1.0", features = ["derive"] }
+clap = { version = "4", features = ["derive"] }
+thiserror = "2"
+dirs = "6"
