@@ -8,16 +8,15 @@ A tmux pane orchestrator that creates windows and panes from TOML configuration.
 
 Panout automates the creation of tmux layouts for development workflows. Define your pane arrangements, commands, and SSH connections in a config file, then spawn them with a single command.
 
-<p align="center">
-  <img src="assets/workspace-example.gif" alt="Workspace demo" width="800">
-  <br>
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/d9848694-52d1-414b-a96c-1590cbc0784a" width="800" controls></video>
   <em>Video example of a bundled workspace</em>
-</p>
-
-<details>
-<summary>Workspace config used in the video</summary>
+  <br>
+  <br>
+</div>
 
 ```toml
+# The bundled workspace config used in the video
 [workspace.installvm]
 host = "wizardengineer@192.168.11.1"
 dir = "~/src/instafix-llvm"
@@ -26,7 +25,6 @@ windows = [
     { panes = 4 },
 ]
 ```
-</details>
 
 ## Features
 

@@ -1,3 +1,4 @@
 /target
 /.claude
 .claude/
+.DS_Store
