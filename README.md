@@ -1,7 +1,7 @@
 # Panout
 
 <p align="center">
-  <img src="assets/panda.png" alt="Pandy the Pane Panda" width="200">
+  <img src="assets/panda.png" alt="Pandy the Pane Panda" width="500">
 </p>
 
 A tmux pane orchestrator that creates windows and panes from TOML configuration.
