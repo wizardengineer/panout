@@ -1,5 +1,9 @@
 # Panout
 
+<p align="center">
+  <img src="assets/panda.png" alt="Pandy the Pane Panda" width="200">
+</p>
+
 A tmux pane orchestrator that creates windows and panes from TOML configuration.
 
 Panout automates the creation of tmux layouts for development workflows. Define your pane arrangements, commands, and SSH connections in a config file, then spawn them with a single command.
