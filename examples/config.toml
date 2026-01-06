@@ -1,0 +1,82 @@
+# Example Panout config
+# Copy to: ~/.config/panout/config.toml
+
+[defaults]
+layout = "tiled"
+
+# ─────────────────────────────────────────────
+# BUNDLES - Local workflows (no SSH)
+# ─────────────────────────────────────────────
+
+# Dev environment - 3 panes
+[dev.frontend]
+pane = 0
+cmd = "cd ~/Projects/app && npm run dev"
+layout = "horizontal"
+
+[dev.backend]
+pane = 1
+cmd = "cargo watch -x run"
+
+[dev.logs]
+pane = 2
+cmd = "tail -f /var/log/app.log"
+
+# Run all dev panes at once
+[dev.all]
+cmd = ["@dev.frontend", "@dev.backend", "@dev.logs"]
+
+# Nvim config editing
+[project.nvim-init]
+pane = 0
+cmd = ["cd ~/.config/nvim", "nvim init.vim"]
+role = "primary"
+layout = "vertical"
+
+[project.nvim-keymaps]
+pane = 1
+cmd = ["cd ~/.config/nvim", "nvim keymaps.lua"]
+
+# Run both nvim panes
+[project.nvim-all]
+cmd = ["@project.nvim-init", "@project.nvim-keymaps"]
+
+# Simple single-command bundles
+[quick.htop]
+cmd = "htop"
+
+[quick.logs]
+cmd = "journalctl -f"
+
+# ─────────────────────────────────────────────
+# WORKSPACES - Multi-window configs
+# ─────────────────────────────────────────────
+# Usage: panout -w instafix
+
+[workspace.instafix]
+dir = "~/src/instafix"
+windows = [
+    { panes = 2, layout = "vertical" },
+    { panes = 4 },
+]
+
+[workspace.installvm]
+dir = "~/src/instafix-llvm"
+windows = [
+    { panes = 2, layout = "vertical" },
+    { panes = 4 },
+]
+
+# ─────────────────────────────────────────────
+# SERVERS - SSH contexts (Phase 2)
+# ─────────────────────────────────────────────
+
+[servers.wizard]
+host = "wizardenginer@192.21.11.1"
+disconnect = true
+cmd = ["cd {user}/src", "@project.nvim-init", "@project.nvim-keymaps"]
+
+[servers.database]
+host = "admin@192.21.23.1"
+disconnect = true
+cmd = "cd /var/lib/postgres"
