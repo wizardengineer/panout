@@ -16,6 +16,7 @@ Panout automates the creation of tmux layouts for development workflows. Define 
 ## Installation
 
 ```bash
+git clone https://github.com/wizardengineer/panout.git
 cargo install --path .
 ```
 
