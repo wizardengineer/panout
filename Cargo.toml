@@ -1,7 +1,7 @@
 [package]
 name = "panout"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 description = "Tmux pane orchestrator - create panes and windows from TOML config"
 license = "MIT"
 readme = "README.md"
