@@ -1,7 +1,7 @@
 # Requirements: Panout
 
 **Defined:** 2026-02-24
-**Core Value:** Panout must reliably create the exact tmux layout and commands the user configured — bundles, workspaces, SSH connections, and pane arrangements all working from a single `panout` command.
+**Core Value:** Panout must reliably create the exact tmux layout and commands the user configured -- bundles, workspaces, SSH connections, and pane arrangements all working from a single `panout` command.
 
 ## v1 Requirements
 
@@ -76,29 +76,29 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SESS-01 | TBD | Pending |
-| SESS-02 | TBD | Pending |
-| SESS-03 | TBD | Pending |
-| SESS-04 | TBD | Pending |
-| SESS-05 | TBD | Pending |
-| SESS-06 | TBD | Pending |
-| RLSE-01 | TBD | Pending |
-| RLSE-02 | TBD | Pending |
-| RLSE-03 | TBD | Pending |
-| UPDT-01 | TBD | Pending |
-| UPDT-02 | TBD | Pending |
-| UPDT-03 | TBD | Pending |
-| UPDT-04 | TBD | Pending |
-| SESH-01 | TBD | Pending |
-| SESH-02 | TBD | Pending |
-| SESH-03 | TBD | Pending |
-| SESH-04 | TBD | Pending |
+| SESS-01 | Phase 2 | Pending |
+| SESS-02 | Phase 2 | Pending |
+| SESS-03 | Phase 2 | Pending |
+| SESS-04 | Phase 2 | Pending |
+| SESS-05 | Phase 2 | Pending |
+| SESS-06 | Phase 2 | Pending |
+| RLSE-01 | Phase 1 | Pending |
+| RLSE-02 | Phase 1 | Pending |
+| RLSE-03 | Phase 1 | Pending |
+| UPDT-01 | Phase 3 | Pending |
+| UPDT-02 | Phase 3 | Pending |
+| UPDT-03 | Phase 3 | Pending |
+| UPDT-04 | Phase 3 | Pending |
+| SESH-01 | Phase 4 | Pending |
+| SESH-02 | Phase 4 | Pending |
+| SESH-03 | Phase 4 | Pending |
+| SESH-04 | Phase 4 | Pending |
 
 **Coverage:**
 - v1 requirements: 17 total
-- Mapped to phases: 0
-- Unmapped: 17
+- Mapped to phases: 17
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-24*
-*Last updated: 2026-02-24 after initial definition*
+*Last updated: 2026-02-24 after roadmap creation*
