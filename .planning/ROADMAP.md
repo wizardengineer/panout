@@ -41,10 +41,11 @@ Plans:
   2. Re-running the same bundle command reattaches to the existing remote session instead of creating a duplicate
   3. After an SSH disconnect, re-running the bundle reconnects to the persisted session with all windows and panes intact
   4. Existing bundle and workspace configs that do not use remote sessions continue working without any changes
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 02-01: TBD
+- [ ] 02-01-PLAN.md -- Session name sanitization and remote command builder (SESS-03, SESS-04)
+- [ ] 02-02-PLAN.md -- Wire remote sessions into workspace execution (SESS-01, SESS-02, SESS-05, SESS-06)
 
 ### Phase 3: Self-Update
 **Goal**: Users can update panout to the latest version with a single command
@@ -81,6 +82,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Release Infrastructure | 1/1 | Complete | 2026-02-24 |
-| 2. Remote Tmux Sessions | 0/0 | Not started | - |
+| 2. Remote Tmux Sessions | 0/2 | Planned | - |
 | 3. Self-Update | 0/0 | Not started | - |
 | 4. Sesh Session Switcher | 0/0 | Not started | - |
