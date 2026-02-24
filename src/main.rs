@@ -7,7 +7,7 @@ use clap::Parser;
 use panout::cli::Cli;
 use panout::config::{Config, Layout, Workspace};
 use panout::error::Result;
-use panout::{loader, resolver, tmux, PanoutError};
+use panout::{loader, resolver, session, tmux, PanoutError};
 
 fn main() {
     if let Err(e) = run() {
@@ -87,14 +87,33 @@ fn run_bundle(cli: &Cli, config: &Config) -> Result<()> {
 }
 
 /// Execute a workspace configuration (multiple windows with optional SSH).
+///
+/// Remote workspaces (with `host` set) create a persistent named tmux
+/// session on the remote host via SSH. Local workspaces create windows
+/// and panes as before.
 fn run_workspace(config: &Config, name: &str) -> Result<()> {
     let workspace = config
         .get_workspace(name)
         .ok_or_else(|| PanoutError::WorkspaceNotFound(name.into()))?;
 
-    let start_window = tmux::current_window()?;
-    run_workspace_windows(workspace)?;
-    tmux::select_window(start_window)?;
+    match &workspace.host {
+        Some(host) => {
+            // Remote session: SSH into host with named tmux session
+            let cmd = session::build_remote_session_cmd(
+                host,
+                name,
+                workspace.dir.as_deref(),
+            );
+            let panes = tmux::pane_indices()?;
+            tmux::send_keys(panes[0], &cmd)?;
+        }
+        None => {
+            // Local workspace: create windows/panes as before
+            let start_window = tmux::current_window()?;
+            run_workspace_windows(workspace)?;
+            tmux::select_window(start_window)?;
+        }
+    }
 
     Ok(())
 }
