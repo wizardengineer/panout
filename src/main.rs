@@ -56,6 +56,11 @@ fn print_listings(config: &Config) {
 }
 
 /// Execute a bundle configuration.
+///
+/// Bundles targeting SSH servers (detected via resolved commands matching
+/// known server hosts) route through the session module to create
+/// persistent remote tmux sessions. Other bundles send commands to
+/// local panes as before.
 fn run_bundle(cli: &Cli, config: &Config) -> Result<()> {
     let bundle_name = cli
         .bundle
@@ -75,15 +80,61 @@ fn run_bundle(cli: &Cli, config: &Config) -> Result<()> {
 
     let pane_indices = tmux::create_panes(num_panes, layout)?;
 
-    for (i, commands) in pane_commands {
-        if let Some(&actual_pane) = pane_indices.get(i as usize) {
-            for cmd in commands {
-                tmux::send_keys(actual_pane, &cmd)?;
+    // Check if pane 0 commands include an SSH connection to a known server
+    let server_host = find_server_host(&pane_commands, config);
+
+    if let Some(host) = server_host {
+        // Remote bundle: create named tmux session on remote host
+        let cmd = session::build_remote_session_cmd(
+            &host,
+            bundle_name,
+            None,
+        );
+        if let Some(&pane) = pane_indices.first() {
+            tmux::send_keys(pane, &cmd)?;
+        }
+    } else {
+        // Local bundle: send commands to panes as before
+        for (i, commands) in pane_commands {
+            if let Some(&actual_pane) = pane_indices.get(i as usize) {
+                for cmd in commands {
+                    tmux::send_keys(actual_pane, &cmd)?;
+                }
             }
         }
     }
 
     Ok(())
+}
+
+/// Check if resolved pane commands contain an SSH command targeting a known server.
+///
+/// Scans all resolved pane commands for `ssh <host>` patterns where `<host>`
+/// matches a server host from the config. Returns the first matching host.
+fn find_server_host(
+    pane_commands: &[(u32, Vec<String>)],
+    config: &Config,
+) -> Option<String> {
+    let known_hosts: Vec<&str> = config
+        .servers
+        .values()
+        .map(|s| s.host.as_str())
+        .collect();
+
+    for (_, commands) in pane_commands {
+        for cmd in commands {
+            if let Some(rest) = cmd.strip_prefix("ssh ") {
+                let target = rest.trim();
+                if known_hosts
+                    .iter()
+                    .any(|h| target == *h || target.ends_with(h))
+                {
+                    return Some(target.to_string());
+                }
+            }
+        }
+    }
+    None
 }
 
 /// Execute a workspace configuration (multiple windows with optional SSH).
