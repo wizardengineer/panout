@@ -12,7 +12,7 @@ This milestone adds three capabilities to panout: persistent tmux sessions on re
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Release Infrastructure** - GitHub Actions + cargo-dist pipeline producing cross-platform release binaries
+- [x] **Phase 1: Release Infrastructure** - GitHub Actions + cargo-dist pipeline producing cross-platform release binaries
 - [ ] **Phase 2: Remote Tmux Sessions** - SSH bundles create/reattach named tmux sessions on remote hosts
 - [ ] **Phase 3: Self-Update** - `panout --update` downloads and replaces the binary from GitHub Releases
 - [ ] **Phase 4: Sesh Session Switcher** - Shell script for fuzzy-searching and switching tmux sessions on remote machines
@@ -27,10 +27,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   1. Pushing a version tag to GitHub triggers an automated build that produces release assets
   2. Release artifacts exist for Linux x86_64, macOS x86_64, and macOS aarch64
   3. Release archive naming follows the `{name}-{version}-{target}.tar.gz` convention expected by the self_update crate
-**Plans**: TBD
+**Plans:** 1 plan
 
 Plans:
-- [ ] 01-01: TBD
+- [x] 01-01-PLAN.md -- Configure cargo-dist for cross-platform release binaries (RLSE-01, RLSE-02, RLSE-03)
 
 ### Phase 2: Remote Tmux Sessions
 **Goal**: Users can run a bundle with SSH and get a persistent, named tmux session on the remote host that survives disconnects
@@ -80,7 +80,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Release Infrastructure | 0/0 | Not started | - |
+| 1. Release Infrastructure | 1/1 | Complete | 2026-02-24 |
 | 2. Remote Tmux Sessions | 0/0 | Not started | - |
 | 3. Self-Update | 0/0 | Not started | - |
 | 4. Sesh Session Switcher | 0/0 | Not started | - |

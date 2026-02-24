@@ -15,12 +15,13 @@ Requirements for this milestone. Each maps to roadmap phases.
 - [ ] **SESS-04**: SSH commands use TTY allocation (`-t` flag) for tmux to function
 - [ ] **SESS-05**: After SSH disconnect, user can re-run the same panout command to reconnect to the persisted session with all windows/panes intact
 - [ ] **SESS-06**: Existing bundle and workspace configs continue working without changes
+- [ ] **SESS-07**: User can configure mosh as an alternative to SSH for remote connections (e.g., `protocol = "mosh"` on workspace, defaults to "ssh")
 
 ### Release Infrastructure
 
-- [ ] **RLSE-01**: GitHub Actions workflow builds cross-platform release binaries on tagged commits
-- [ ] **RLSE-02**: cargo-dist produces release assets for Linux x86_64, macOS x86_64, macOS aarch64
-- [ ] **RLSE-03**: Release archives follow naming convention compatible with self_update crate
+- [x] **RLSE-01**: GitHub Actions workflow builds cross-platform release binaries on tagged commits
+- [x] **RLSE-02**: cargo-dist produces release assets for Linux x86_64, macOS x86_64, macOS aarch64
+- [x] **RLSE-03**: Release archives follow naming convention compatible with self_update crate
 
 ### Self-Update
 
@@ -82,9 +83,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SESS-04 | Phase 2 | Pending |
 | SESS-05 | Phase 2 | Pending |
 | SESS-06 | Phase 2 | Pending |
-| RLSE-01 | Phase 1 | Pending |
-| RLSE-02 | Phase 1 | Pending |
-| RLSE-03 | Phase 1 | Pending |
+| SESS-07 | Phase 2 | Pending |
+| RLSE-01 | Phase 1 | Complete |
+| RLSE-02 | Phase 1 | Complete |
+| RLSE-03 | Phase 1 | Complete |
 | UPDT-01 | Phase 3 | Pending |
 | UPDT-02 | Phase 3 | Pending |
 | UPDT-03 | Phase 3 | Pending |
@@ -95,8 +97,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SESH-04 | Phase 4 | Pending |
 
 **Coverage:**
-- v1 requirements: 17 total
-- Mapped to phases: 17
+- v1 requirements: 18 total
+- Mapped to phases: 18
 - Unmapped: 0
 
 ---
