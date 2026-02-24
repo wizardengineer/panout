@@ -10,7 +10,16 @@
 /// Strips characters that are not alphanumeric, hyphens, or underscores.
 /// Trims leading and trailing hyphens for cleanliness.
 pub fn sanitize_session_name(name: &str) -> String {
-    todo!()
+    let sanitized: String = name
+        .chars()
+        .map(|c| match c {
+            '.' | ':' => '-',
+            c if c.is_alphanumeric() || c == '-' || c == '_' => c,
+            _ => '\0',
+        })
+        .filter(|&c| c != '\0')
+        .collect();
+    sanitized.trim_matches('-').to_string()
 }
 
 /// Build the SSH command string for creating/attaching a remote tmux session.
@@ -27,7 +36,15 @@ pub fn build_remote_session_cmd(
     session_name: &str,
     dir: Option<&str>,
 ) -> String {
-    todo!()
+    let safe_name = sanitize_session_name(session_name);
+    match dir {
+        Some(d) => format!(
+            "ssh -t {host} \"cd {d} && tmux new-session -A -s {safe_name}\""
+        ),
+        None => format!(
+            "ssh -t {host} \"tmux new-session -A -s {safe_name}\""
+        ),
+    }
 }
 
 #[cfg(test)]
