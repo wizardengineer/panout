@@ -13,7 +13,7 @@ This milestone adds three capabilities to panout: persistent tmux sessions on re
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Release Infrastructure** - GitHub Actions + cargo-dist pipeline producing cross-platform release binaries
-- [ ] **Phase 2: Remote Tmux Sessions** - SSH bundles create/reattach named tmux sessions on remote hosts
+- [x] **Phase 2: Remote Tmux Sessions** - SSH bundles create/reattach named tmux sessions on remote hosts
 - [ ] **Phase 3: Self-Update** - `panout --update` downloads and replaces the binary from GitHub Releases
 - [ ] **Phase 4: Sesh Session Switcher** - Shell script for fuzzy-searching and switching tmux sessions on remote machines
 
@@ -45,7 +45,7 @@ Plans:
 
 Plans:
 - [x] 02-01-PLAN.md -- Session name sanitization and remote command builder (SESS-03, SESS-04)
-- [ ] 02-02-PLAN.md -- Wire remote sessions into workspace execution (SESS-01, SESS-02, SESS-05, SESS-06)
+- [x] 02-02-PLAN.md -- Wire remote sessions into workspace execution (SESS-01, SESS-02, SESS-05, SESS-06)
 
 ### Phase 3: Self-Update
 **Goal**: Users can update panout to the latest version with a single command
@@ -82,6 +82,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Release Infrastructure | 1/1 | Complete | 2026-02-24 |
-| 2. Remote Tmux Sessions | 1/2 | In Progress | - |
+| 2. Remote Tmux Sessions | 2/2 | Complete | 2026-02-24 |
 | 3. Self-Update | 0/0 | Not started | - |
 | 4. Sesh Session Switcher | 0/0 | Not started | - |

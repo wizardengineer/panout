@@ -9,12 +9,12 @@ Requirements for this milestone. Each maps to roadmap phases.
 
 ### Remote Sessions
 
-- [ ] **SESS-01**: User can create a named tmux session on a remote host when running a bundle with SSH (session name = sanitized bundle name)
-- [ ] **SESS-02**: If remote tmux session already exists, user is reattached to it instead of creating a duplicate
+- [x] **SESS-01**: User can create a named tmux session on a remote host when running a bundle with SSH (session name = sanitized bundle name)
+- [x] **SESS-02**: If remote tmux session already exists, user is reattached to it instead of creating a duplicate
 - [x] **SESS-03**: Bundle names are sanitized for tmux compatibility (dots replaced with hyphens, special chars stripped)
 - [x] **SESS-04**: SSH commands use TTY allocation (`-t` flag) for tmux to function
-- [ ] **SESS-05**: After SSH disconnect, user can re-run the same panout command to reconnect to the persisted session with all windows/panes intact
-- [ ] **SESS-06**: Existing bundle and workspace configs continue working without changes
+- [x] **SESS-05**: After SSH disconnect, user can re-run the same panout command to reconnect to the persisted session with all windows/panes intact
+- [x] **SESS-06**: Existing bundle and workspace configs continue working without changes
 - [ ] **SESS-07**: User can configure mosh as an alternative to SSH for remote connections (e.g., `protocol = "mosh"` on workspace, defaults to "ssh")
 
 ### Release Infrastructure
@@ -77,12 +77,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SESS-01 | Phase 2 | Pending |
-| SESS-02 | Phase 2 | Pending |
+| SESS-01 | Phase 2 | Complete |
+| SESS-02 | Phase 2 | Complete |
 | SESS-03 | Phase 2 | Complete |
 | SESS-04 | Phase 2 | Complete |
-| SESS-05 | Phase 2 | Pending |
-| SESS-06 | Phase 2 | Pending |
+| SESS-05 | Phase 2 | Complete |
+| SESS-06 | Phase 2 | Complete |
 | SESS-07 | Phase 2 | Pending |
 | RLSE-01 | Phase 1 | Complete |
 | RLSE-02 | Phase 1 | Complete |
