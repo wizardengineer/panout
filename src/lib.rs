@@ -52,6 +52,7 @@ pub mod error;
 pub mod interpolate;
 pub mod loader;
 pub mod resolver;
+pub mod session;
 pub mod ssh;
 pub mod tmux;
 
